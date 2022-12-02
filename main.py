@@ -13,6 +13,25 @@ def decodeEmail(e):
     return de
 
 
+def createFile(number):
+    global record_count
+    global file
+    global writer
+    record_count = 0
+    file = open(f'Hati NGOs{number}.csv', 'w', encoding='utf8', newline='')
+    writer = csv.writer(file)
+
+    # writer header rows
+    writer.writerow(['Lead ID', 'Leader Owner', 'Leader Owner ID', 'Company', 'First Name', 'Last Name',
+                     'Title', 'Email', 'Phone', 'Mobile', 'Website', 'Lead Source', 'Lead Status', 'Industry',
+                     'No. of Employees', 'Rating', 'Created By', 'Created by ID', 'Modified By', 'Modified By ID',
+                     'Created Time', 'Modified Time', 'Street', 'City', 'State', 'Zip Code', 'Country', 'Description',
+                     'Email Opt Out', 'Salutation', 'Secondary Email', 'Last Activity Time', 'Lead Conversion Time',
+                     'Unsubscribed Mode', 'Unsubscribed Time', 'Converted Account', 'Converted Account Id',
+                     'Converted Contact', 'Converted Contact Id', 'Converted Deal', 'Converted Deal Id', 'Record Id',
+                     'Is Converted'])
+
+
 URL = "https://www.hati.my/"
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, "html.parser")
@@ -20,8 +39,9 @@ soup = BeautifulSoup(page.content, "html.parser")
 results = soup.find(id="content-area")
 categories = results.find_all("div", class_="col-12 col-md-6 col-lg-3 mt-3")
 category_links = []
-
-file = open('Hati NGOs.csv', 'w', encoding='utf8', newline='')
+record_count = 0
+file_number = 1
+file = open(f'Hati NGOs{file_number}.csv', 'w', encoding='utf8', newline='')
 writer = csv.writer(file)
 
 # writer header rows
@@ -50,10 +70,6 @@ for category_link in category_links:
         soup = BeautifulSoup(page.content, "html.parser")
         results = soup.find(id="content")
         next_page = results.find("a", class_="next page-numbers")
-        if str(next_page) != "None":
-            page_number += 1
-        else:
-            break
 
         NGOs = results.find_all("h2", class_="entry-title2")
 
@@ -71,18 +87,12 @@ for category_link in category_links:
             full_desc = ''
             for line in desc:
                 # print(line.text.strip())  # Description Paragraphs
-                full_desc = full_desc + line.text.strip()
+                full_desc = full_desc + " " + line.text.strip()
             points = NGO_info.find_all("li")
             for point in points:
                 # print(point.text.strip())  # Description Bullet Points
                 full_desc = full_desc + point.text.strip()
             # print(full_desc) # Full Description
-            # NGO_check = NGO_info.find_all("td", class_="tooltip1")
-            # Detail_list = []
-            # for line in NGO_check:
-            #     line = line.text.strip()
-            #     Detail_list.append(line)
-            # print(Detail_list)
 
             NGO_details = NGO_info.find_all("td", class_="tooltip1")
             email = ''
@@ -116,8 +126,29 @@ for category_link in category_links:
                 if "Address" in line:
                     address = line[:-7]
                     # print(address)  # Address
-            writer.writerow(['', 'Melvin Lim', 'zcrm_5493297000000388001', NGO_name, '', '-', '', email, phone,
-                             '', website, 'Web', '', 'NGO', '', '', 'Melvin Lim', 'zcrm_5493297000000388001', '',
-                             '', '', '', address, '', '', '', 'Malaysia', reg + full_desc, 'FALSE', '', '', '', '', '',
-                             '', '', '', '', '', '', '', '', ''])
+            if record_count < 1000:
+                writer.writerow(['', 'Melvin Lim', 'zcrm_5493297000000388001', NGO_name, '', '-', '', email, phone,
+                                 '', website, 'Web', '', 'NGO', '', '', 'Melvin Lim', 'zcrm_5493297000000388001', '',
+                                 '', '', '', address, '', '', '', 'Malaysia', "Registration Number - " + reg + " " +
+                                 "\n" + full_desc, 'FALSE', '', '', '', '',
+                                 '',
+                                 '', '', '', '', '', '', '', '', ''])
+                record_count += 1
+                print(record_count)
+            else:
+                file.close()
+                file_number += 1
+                createFile(file_number)
+                writer.writerow(['', 'Melvin Lim', 'zcrm_5493297000000388001', NGO_name, '', '-', '', email, phone,
+                                 '', website, 'Web', '', 'NGO', '', '', 'Melvin Lim', 'zcrm_5493297000000388001', '',
+                                 '', '', '', address, '', '', '', 'Malaysia', "Registration Number - " + reg + " " +
+                                 "\n" + full_desc, 'FALSE', '', '', '', '',
+                                 '',
+                                 '', '', '', '', '', '', '', '', ''])
+                record_count += 1
+                print(record_count)
+        if str(next_page) != "None":
+            page_number += 1
+        else:
+            break
 file.close()
