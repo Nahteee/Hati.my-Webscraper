@@ -7,28 +7,28 @@ Make sure "main.py" and the .bat/.sh files are in the same folder.
 HEADSUP- A couple of pip modules will be installed onto your machine
 
 # How to run:
-## If you're on Windows, run the .bat file
+**If you're on Windows, run the .bat file**
 
-## If you're on MAC/Linux,
+**If you're on MAC/Linux,**
 
-Open this directory in your terminal (right click in the folder and click 'open in terminal'
+1. Open this directory in your terminal (right click in the folder and click 'open in terminal'
 
-Copy paste the command below into the terminal
+2. Copy paste the command below into the terminal
 
-"chmod +x runMAC.sh"
+3. "chmod +x runMAC.sh"
 
-Press enter
+4. Press enter
 
-You should now be able to run the file as an executable by double clicking on the .sh file
+5. You should now be able to run the file as an executable by double clicking on the .sh file
 
-If it still only brings up the text editor, run this command in your terminal
+6. If it still only brings up the text editor, run this command in your terminal
 
-"./runMAC.sh"
+7. "./runMAC.sh"
 
 # Dependencies
-pip install requests
+Requests: `pip install requests`
 
-pip install beautifulsoup4
+Beautiful Soup: `pip install beautifulsoup4`
 
 # End
 IF the program still does not run properly, do contact me
