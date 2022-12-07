@@ -18,11 +18,11 @@ def createFile(number):
     global file
     global writer
     record_count = 0
-    file = open(f'Hati NGOs{number}.csv', 'w', encoding='utf8', newline='')
+    file = open(f'Hati NGOs {number}.csv', 'w', encoding='utf8', newline='')
     writer = csv.writer(file)
 
     # writer header rows
-    writer.writerow(['Lead ID', 'Leader Owner', 'Leader Owner ID', 'Company', 'First Name', 'Last Name',
+    writer.writerow(['Lead ID', 'Lead Owner', 'Lead Owner ID', 'Company', 'First Name', 'Last Name',
                      'Title', 'Email', 'Phone', 'Mobile', 'Website', 'Lead Source', 'Lead Status', 'Industry',
                      'No. of Employees', 'Rating', 'Created By', 'Created by ID', 'Modified By', 'Modified By ID',
                      'Created Time', 'Modified Time', 'Street', 'City', 'State', 'Zip Code', 'Country', 'Description',
@@ -41,11 +41,11 @@ categories = results.find_all("div", class_="col-12 col-md-6 col-lg-3 mt-3")
 category_links = []
 record_count = 0
 file_number = 1
-file = open(f'Hati NGOs{file_number}.csv', 'w', encoding='utf8', newline='')
+file = open(f'Hati NGOs {file_number}.csv', 'w', encoding='utf8', newline='')
 writer = csv.writer(file)
 
 # writer header rows
-writer.writerow(['Lead ID', 'Leader Owner', 'Leader Owner ID', 'Company', 'First Name', 'Last Name',
+writer.writerow(['Lead ID', 'Lead Owner', 'Lead Owner ID', 'Company', 'First Name', 'Last Name',
                  'Title', 'Email', 'Phone', 'Mobile', 'Website', 'Lead Source', 'Lead Status', 'Industry',
                  'No. of Employees', 'Rating', 'Created By', 'Created by ID', 'Modified By', 'Modified By ID',
                  'Created Time', 'Modified Time', 'Street', 'City', 'State', 'Zip Code', 'Country', 'Description',
@@ -64,8 +64,8 @@ for category_link in category_links:
     page_number = 1
     while True:
         url = category_link + "/page/" + str(page_number)
-        # url = 'https://www.hati.my/category/culture/page/11/'
         print(url)
+        print("Counting records...")
         page = requests.get(url)
         soup = BeautifulSoup(page.content, "html.parser")
         results = soup.find(id="content")
@@ -101,14 +101,11 @@ for category_link in category_links:
             address = ''
             reg = ''
 
-            # writer.writerow([NGO_name, full_desc, email, website, phone, reg, address])
-
             for line in NGO_details:
                 line = line.text.strip()
                 if "Email" in line:
                     try:
                         email_tag = NGO_info.find("span", class_="__cf_email__")
-                        # print(email_tag)
                         email = email_tag["data-cfemail"]
                         email = decodeEmail(email)
                         # print(email)  # Email
@@ -152,3 +149,4 @@ for category_link in category_links:
         else:
             break
 file.close()
+
