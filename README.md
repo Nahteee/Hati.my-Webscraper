@@ -19,7 +19,7 @@ If it still only brings up the text editor, run this command in your terminal
 "./runMAC.sh"
 
 # Dependencies
-pip install requests
+pip install requests\n
 pip install beautifulsoup4
 
 
