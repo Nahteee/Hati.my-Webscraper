@@ -7,9 +7,9 @@ Make sure "main.py" and the .bat/.sh files are in the same folder.
 HEADSUP- A couple of pip modules will be installed onto your machine
 
 # How to run:
-If you're on Windows, run the .bat file
+## If you're on Windows, run the .bat file
 
-If you're on MAC/Linux,
+## If you're on MAC/Linux,
 
 Open this directory in your terminal (right click in the folder and click 'open in terminal'
 
