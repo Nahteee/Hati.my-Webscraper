@@ -24,4 +24,4 @@ After executing the program, a terminal should appear counting through records.
 It should also output a CSV file named "Hati NGOs"
 
 The CSV file will have a maximum of 1000 records.
-If the records scraped exceed that, another CSV file will be outputted
+If the records scraped exceed that, the file will split into another CSV file
