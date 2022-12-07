@@ -45,9 +45,9 @@ file = open(f'Hati NGOs {file_number}.csv', 'w', encoding='utf8', newline='')
 writer = csv.writer(file)
 
 # writer header rows
-writer.writerow(['Lead ID', 'Lead Owner', 'Lead Owner ID', 'Company', 'First Name', 'Last Name',
+writer.writerow(['Lead ID', 'Company', 'First Name', 'Last Name',
                  'Title', 'Email', 'Phone', 'Mobile', 'Website', 'Lead Source', 'Lead Status', 'Industry',
-                 'No. of Employees', 'Rating', 'Created By', 'Created by ID', 'Modified By', 'Modified By ID',
+                 'No. of Employees', 'Rating', 'Modified By', 'Modified By ID',
                  'Created Time', 'Modified Time', 'Street', 'City', 'State', 'Zip Code', 'Country', 'Description',
                  'Email Opt Out', 'Salutation', 'Secondary Email', 'Last Activity Time', 'Lead Conversion Time',
                  'Unsubscribed Mode', 'Unsubscribed Time', 'Converted Account', 'Converted Account Id',
@@ -124,8 +124,8 @@ for category_link in category_links:
                     address = line[:-7]
                     # print(address)  # Address
             if record_count < 1000:
-                writer.writerow(['', 'Melvin Lim', 'zcrm_5493297000000388001', NGO_name, '', '-', '', email, phone,
-                                 '', website, 'Web', '', 'NGO', '', '', 'Melvin Lim', 'zcrm_5493297000000388001', '',
+                writer.writerow(['', NGO_name, '', '-', '', email, phone,
+                                 '', website, 'Web', '', 'NGO', '', '', '',
                                  '', '', '', address, '', '', '', 'Malaysia', "Registration Number - " + reg + " " +
                                  "\n" + full_desc, 'FALSE', '', '', '', '',
                                  '',
@@ -136,8 +136,8 @@ for category_link in category_links:
                 file.close()
                 file_number += 1
                 createFile(file_number)
-                writer.writerow(['', 'Melvin Lim', 'zcrm_5493297000000388001', NGO_name, '', '-', '', email, phone,
-                                 '', website, 'Web', '', 'NGO', '', '', 'Melvin Lim', 'zcrm_5493297000000388001', '',
+                writer.writerow(['', NGO_name, '', '-', '', email, phone,
+                                 '', website, 'Web', '', 'NGO', '', '', '',
                                  '', '', '', address, '', '', '', 'Malaysia', "Registration Number - " + reg + " " +
                                  "\n" + full_desc, 'FALSE', '', '', '', '',
                                  '',
