@@ -18,6 +18,11 @@ You should now be able to run the file as an executable by double clicking on 
 If it still only brings up the text editor, run this command in your terminal
 "./runMAC.sh"
 
+# Dependencies
+pip install requests
+pip install beautifulsoup4
+
+
 IF the program still does not run properly, do contact me
 
 After executing the program, a terminal should appear counting through records.
