@@ -15,7 +15,7 @@ HEADSUP- A couple of pip modules will be installed onto your machine
 
 2. Copy paste the command below into the terminal
 
-3. "chmod +x runMAC.sh"
+3. `chmod +x runMAC.sh`
 
 4. Press enter
 
@@ -23,7 +23,7 @@ HEADSUP- A couple of pip modules will be installed onto your machine
 
 6. If it still only brings up the text editor, run this command in your terminal
 
-7. "./runMAC.sh"
+7. `./runMAC.sh`
 
 # Dependencies
 Requests: `pip install requests`
