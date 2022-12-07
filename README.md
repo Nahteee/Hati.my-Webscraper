@@ -1,12 +1,15 @@
 # Hati.my Webscraper
 
+Webscraper for [Hati.my](https://www.hati.my/)
+
 2nd Version of webscraper (1st version died with laptop D:)
+
+# How to run:
 
 Make sure "main.py" and the .bat/.sh files are in the same folder.
 
 HEADSUP- A couple of pip modules will be installed onto your machine
 
-# How to run:
 **If you're on Windows, run the .bat file**
 
 **If you're on MAC/Linux,**
