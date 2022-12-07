@@ -22,15 +22,14 @@ def createFile(number):
     writer = csv.writer(file)
 
     # writer header rows
-    writer.writerow(['Lead ID', 'Lead Owner', 'Lead Owner ID', 'Company', 'First Name', 'Last Name',
-                     'Title', 'Email', 'Phone', 'Mobile', 'Website', 'Lead Source', 'Lead Status', 'Industry',
-                     'No. of Employees', 'Rating', 'Created By', 'Created by ID', 'Modified By', 'Modified By ID',
-                     'Created Time', 'Modified Time', 'Street', 'City', 'State', 'Zip Code', 'Country', 'Description',
-                     'Email Opt Out', 'Salutation', 'Secondary Email', 'Last Activity Time', 'Lead Conversion Time',
-                     'Unsubscribed Mode', 'Unsubscribed Time', 'Converted Account', 'Converted Account Id',
-                     'Converted Contact', 'Converted Contact Id', 'Converted Deal', 'Converted Deal Id', 'Record Id',
-                     'Is Converted'])
-
+    writer.writerow(['Lead ID', 'Company', 'First Name', 'Last Name',
+                 'Title', 'Email', 'Phone', 'Mobile', 'Website', 'Lead Source', 'Lead Status', 'Industry',
+                 'No. of Employees', 'Rating', 'Modified By', 'Modified By ID',
+                 'Created Time', 'Modified Time', 'Street', 'City', 'State', 'Zip Code', 'Country', 'Description',
+                 'Email Opt Out', 'Salutation', 'Secondary Email', 'Last Activity Time', 'Lead Conversion Time',
+                 'Unsubscribed Mode', 'Unsubscribed Time', 'Converted Account', 'Converted Account Id',
+                 'Converted Contact', 'Converted Contact Id', 'Converted Deal', 'Converted Deal Id', 'Record Id',
+                 'Is Converted'])
 
 URL = "https://www.hati.my/"
 page = requests.get(URL)
