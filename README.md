@@ -3,6 +3,7 @@
 2nd Version of webscraper (1st version died with laptop D:)
 
 Make sure "main.py" and the .bat/.sh files are in the same folder.
+
 HEADSUP- A couple of pip modules will be installed onto your machine
 
 # How to run:
